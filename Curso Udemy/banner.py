@@ -2,7 +2,7 @@ import flet as ft
 
 # flet -r aula.py
 def main(page: ft.Page):
-
+    ...
 
 
 if __name__ == '__main__':
