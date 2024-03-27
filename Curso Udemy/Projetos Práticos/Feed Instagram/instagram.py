@@ -21,6 +21,10 @@ def main(page: ft.Page):
         # Atualiza o controle
         e.control.update()
 
+    # Função para pegar o comentario
+    def get_comment(e):
+        print(e.control.value)
+
     # Cria um layout de contêiner com algumas configurações de estilo
     layout = ft.Container(
         bgcolor=ft.colors.WHITE,  # Define a cor de fundo do contêiner como branco
@@ -154,6 +158,7 @@ def main(page: ft.Page):
                                 border_color=ft.colors.GREY,
                                 border_width=1,
                                 color=ft.colors.BLACK,
+                                on_submit=get_comment
                             )
 
                         ]
