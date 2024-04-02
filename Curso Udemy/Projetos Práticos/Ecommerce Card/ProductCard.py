@@ -134,18 +134,22 @@ def main(page: ft.Page):
                 ),
 
                 ft.Tabs(
+                    expand=True,
                     selected_index=0,
-                    height=480,
                     indicator_color=ft.colors.AMBER,
                     label_color=ft.colors.AMBER,
                     unselected_label_color=ft.colors.GREY,
                     tabs=[
                         ft.Tab(
                             text="Descrição",
-                            content=ft.Container(
-                                padding=ft.padding.all(10),
-                                content=ft.Text(
-                                    value="IPhone 15 Pro Max Apple 256 GB Titânio Preto\n\n"
+                            content=ft.Column(
+                                scroll=ft.ScrollMode.ALWAYS,
+                                controls=[
+                                    ft.Container(
+                                        padding=ft.padding.all(10),
+                                        content=ft.Text(
+                                            value=
+                                          "IPhone 15 Pro Max Apple 256 GB Titânio Preto\n\n"
                                           "Forjado em Titânio\n"
                                           "O iPhone 15 Pro Max tem design robusto e leve em titânio aeroespacial. "
                                           "Na parte de trás, vidro matte texturizado e, na frente, Ceramic Shield mais "
@@ -166,39 +170,45 @@ def main(page: ft.Page):
                                           " em altíssima resolução e tenha mais cores e detalhes com a câmera "
                                           "grande-angular de 48 MP. Os closes vão ficar mais nítidos a uma distância "
                                           "ainda maior com a câmera teleobjetiva de 5x no iPhone 15 Pro Max.",
+                                            color=ft.colors.GREY,
+                                        )
 
-                                    color=ft.colors.GREY,
-                                    # size=12
-                                )
+                                    )
+                                ]
                             )
                         ),
                         ft.Tab(
-                            text="Detalhes",
-                            content=ft.Container(
-                                padding=ft.padding.all(10),
-                                content=ft.Text(
-                                    value="Informações Técnicas\n\n"
-                                          "Características:\n"
-                                          "- Marca: Apple\n"
-                                          "- Modelo: iPhone 15 Pro Max\n\n"
-                                          "Principal:\n"
-                                          "- Memória Interna: 256GB\n"
-                                          "- Processador: A17 Pro\n"
-                                          "- Sistema Operacional: iOS 17\n"
-                                          "- Cor: Titanium Preto\n\n"
-                                          "Chip:\n"
-                                          "- A17 Pro\n"
-                                          "- Nova CPU de 6 núcleos (2 de desempenho e 4 de eficiência)\n"
-                                          "- Nova GPU de 6 núcleos\n"
-                                          "- Novo Neural Engine de 16 núcleos\n\n"
-                                          "Tela:\n"
-                                          "- Super Retina XDR\n"
-                                          "- OLED sem bordas de 6,7 polegadas (na diagonal)\n"
-                                          "- Resolução de 2796 x 1290 pixels a 460 ppp\n",
+                            text="Descrição",
+                            content=ft.Column(
+                                scroll=ft.ScrollMode.ALWAYS,
+                                controls=[
+                                    ft.Container(
+                                        padding=ft.padding.all(10),
+                                        content=ft.Text(
+                                            value="Informações Técnicas\n\n"
+                                                  "Características:\n"
+                                                  "- Marca: Apple\n"
+                                                  "- Modelo: iPhone 15 Pro Max\n\n"
+                                                  "Principal:\n"
+                                                  "- Memória Interna: 256GB\n"
+                                                  "- Processador: A17 Pro\n"
+                                                  "- Sistema Operacional: iOS 17\n"
+                                                  "- Cor: Titanium Preto\n\n"
+                                                  "Chip:\n"
+                                                  "- A17 Pro\n"
+                                                  "- Nova CPU de 6 núcleos (2 de desempenho e 4 de eficiência)\n"
+                                                  "- Nova GPU de 6 núcleos\n"
+                                                  "- Novo Neural Engine de 16 núcleos\n\n"
+                                                  "Tela:\n"
+                                                  "- Super Retina XDR\n"
+                                                  "- OLED sem bordas de 6,7 polegadas (na diagonal)\n"
+                                                  "- Resolução de 2796 x 1290 pixels a 460 ppp\n",
 
-                                    color=ft.colors.GREY,
-                                    # size=12
-                                )
+                                            color=ft.colors.GREY,
+                                        )
+
+                                    )
+                                ]
                             )
                         ),
                     ]
