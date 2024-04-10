@@ -71,6 +71,35 @@ class Todo:
             )
         )
 
+    # def tasks_container(self):
+    #     return ft.Container(
+    #         height=self.page.height * 0.8,
+    #         content=ft.Column(
+    #             controls=[
+    #                 ft.Row(
+    #                     controls=[
+    #                         ft.Checkbox(
+    #                             on_change=self.checked,
+    #                             label=res[0],
+    #                             value=True if res[1] == "complete" else False,
+    #                         ),
+    #                         ft.IconButton(
+    #                             icon=ft.icons.EDIT,
+    #                             icon_color=ft.colors.WHITE,
+    #                             selected_icon_color=ft.colors.RED,
+    #                         )
+    #                     ]
+    #
+    #                 )for res in self.results if res
+    #
+    #             ]
+    #         )
+    #     )
+
+
+
+
+
     # Método chamado quando o valor do campo de entrada é alterado
     def set_value(self, e):
         self.task = e.control.value
