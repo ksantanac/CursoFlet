@@ -11,8 +11,8 @@ class Todo:
         # Inicialização de variáveis e configuração da página
         self.page = page
         self.page.bgcolor = ft.colors.BLACK
-        self.page.window_width = 350
-        self.page.window_height = 400
+        self.page.window_width = 900
+        self.page.window_height = 800
         self.page.window_resizable = False
         self.page.window_always_on_top = True
         self.page.title = "ToDo App"
@@ -37,8 +37,8 @@ class Todo:
 
     # Método chamado quando a checkbox de uma tarefa é marcada ou desmarcada
     def checked(self, e):
-        is_checked = e.control.value
-        label = e.control.label
+        is_checked = e.control.selected
+        label = e.control.title
 
         # Atualiza o status da tarefa no banco de dados com base na marcação da checkbox
         if is_checked:
@@ -55,48 +55,32 @@ class Todo:
         # Atualiza a lista de tarefas na página
         self.update_task_list()
 
+
     # Método para criar o contêiner das tarefas
     def tasks_container(self):
         return ft.Container(
             height=self.page.height * 0.8,
             content=ft.Column(
                 controls=[
-                    ft.Checkbox(
-                        on_change=self.checked,
-                        label=res[0],
-                        value=True if res[1] == "complete" else False,
-                    )
-                    for res in self.results if res
+                    ft.ListTile(
+                        leading=ft.Checkbox(),
+                        title=ft.Text(value=res[0]),
+                        toggle_inputs=True,
+                        selected=True if res[1] == "complete" else False,
+                        trailing=ft.Row(
+                            controls=[
+                                ft.IconButton(icon=ft.icons.EDIT, icon_size=20),
+                                ft.IconButton(icon=ft.icons.DELETE, icon_size=20),
+                            ],
+                            alignment=ft.MainAxisAlignment.END
+                        ),
+                        on_click=self.checked
+                    )for res in self.results if res
                 ]
-            )
+            ),
+
+
         )
-
-    # def tasks_container(self):
-    #     return ft.Container(
-    #         height=self.page.height * 0.8,
-    #         content=ft.Column(
-    #             controls=[
-    #                 ft.Row(
-    #                     controls=[
-    #                         ft.Checkbox(
-    #                             on_change=self.checked,
-    #                             label=res[0],
-    #                             value=True if res[1] == "complete" else False,
-    #                         ),
-    #                         ft.IconButton(
-    #                             icon=ft.icons.EDIT,
-    #                             icon_color=ft.colors.WHITE,
-    #                             selected_icon_color=ft.colors.RED,
-    #                         )
-    #                     ]
-    #
-    #                 )for res in self.results if res
-    #
-    #             ]
-    #         )
-    #     )
-
-
 
 
 
