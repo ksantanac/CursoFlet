@@ -37,8 +37,8 @@ class Todo:
 
     # Método chamado quando a checkbox de uma tarefa é marcada ou desmarcada
     def checked(self, e):
-        is_checked = e.control.selected
-        label = e.control.title
+        is_checked = e.control.leading.value
+        label = e.control.title.value
 
         # Atualiza o status da tarefa no banco de dados com base na marcação da checkbox
         if is_checked:
@@ -63,11 +63,12 @@ class Todo:
             content=ft.Column(
                 controls=[
                     ft.ListTile(
-                        leading=ft.Checkbox(),
+                        leading=ft.Checkbox(value=True if res[1] == "complete" else False),
                         title=ft.Text(value=res[0]),
                         toggle_inputs=True,
                         selected=True if res[1] == "complete" else False,
                         trailing=ft.Row(
+                            tight=True,
                             controls=[
                                 ft.IconButton(icon=ft.icons.EDIT, icon_size=20),
                                 ft.IconButton(icon=ft.icons.DELETE, icon_size=20),
@@ -77,9 +78,7 @@ class Todo:
                         on_click=self.checked
                     )for res in self.results if res
                 ]
-            ),
-
-
+            )
         )
 
 
